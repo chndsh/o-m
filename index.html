@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organization & Management (ME 708) — Revision Notes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '37656', right: '37656', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">ME 708 Notes</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="chapter-01-introduction.html">Ch 1</a>
+      <a href="chapter-02-personnel-management.html">Ch 2</a>
+      <a href="chapter-03-motivation-leadership-entrepreneurship.html">Ch 3</a>
+      <a href="chapter-04-case-studies.html">Ch 4</a>
+      <a href="chapter-05-management-information-system.html">Ch 5</a>
+      <a href="pyq-solutions.html">PYQs</a>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem; text-align: center;">
+      <h1>Organization & Management</h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">Course Code: ME 708 | Quick-Reference Exam Study Notes</p>
+    </div>
+
+    <input type="text" id="search" class="search-box" placeholder="Filter chapters or topics..." onkeyup="filterCards()">
+
+    <div id="chapters-list">
+
+    <div class="card" style="border-left: 4px solid var(--primary);">
+      <div class="card-title">
+        <a href="pyq-solutions.html">📝 Past Year Exam Questions (PYQ) Solutions (2063–2082)</a>
+        <span class="badge" style="background: var(--primary); color: #fff;">Exam Solutions</span>
+      </div>
+      <p class="card-desc">Deduplicated, comprehensive answers to all past exam questions from TU/IOE. Covers theory comparisons, 14 principles, Blake-Mouton grid, Maslow vs Alderfer, small scale industry steps, and high-yield short notes.</p>
+    </div>
+
+      
+    <div class="card">
+      <div class="card-title">
+        <a href="chapter-01-introduction.html">Chapter 1: Introduction</a>
+        <span class="badge">20 hours</span>
+      </div>
+      <p class="card-desc">System approach, Principles of organization, Management functions/skills/models, Classical & Modern theories, Ownership forms, Structures, Purchasing & Marketing.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="chapter-02-personnel-management.html">Chapter 2: Personnel Management</a>
+        <span class="badge">8 hours</span>
+      </div>
+      <p class="card-desc">Personnel functions, Policy development, Manpower planning, Recruitment vs Scientific selection, Training methods, Job analysis/evaluation/merit rating, Wages & incentives.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="chapter-03-motivation-leadership-entrepreneurship.html">Chapter 3: Motivation, Leadership & Entrepreneurship</a>
+        <span class="badge">10 hours</span>
+      </div>
+      <p class="card-desc">Maslow, Alderfer ERG, McClelland, Herzberg, Vroom, Blake & Mouton grid, Leadership styles/theories, Entrepreneurship development & small scale unit setup.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="chapter-04-case-studies.html">Chapter 4: Case Studies</a>
+        <span class="badge">2 hours</span>
+      </div>
+      <p class="card-desc">Case study objectives, 5 diagnostic phases, 6 research steps, 5Ws & 1H problem analysis framework, Case types & limitations.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="chapter-05-management-information-system.html">Chapter 5: Management Information System</a>
+        <span class="badge">5 hours</span>
+      </div>
+      <p class="card-desc">Data vs Information, 10 qualities, MIS evolution, Pyramidal hierarchy, IS classifications (TPS, MIS, DSS, ESS, OAS, ES), Functional support, Centralized vs Decentralized.</p>
+    </div>
+
+    </div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+    function filterCards() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(c => {
+        const text = c.innerText.toLowerCase();
+        c.style.display = text.includes(q) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
